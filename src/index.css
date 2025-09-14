@@ -1,0 +1,157 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 231 48% 28%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 231 48% 28%;
+
+    --radius: 0.5rem;
+
+    /* Custom disaster alert colors */
+    --alert-critical: 0 68% 50%;
+    --alert-high: 30 100% 48%;
+    --alert-moderate: 45 100% 51%;
+    --alert-low: 120 100% 25%;
+
+    /* Custom UI colors */
+    --map-bg: 200 18% 46%;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 6.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 6.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 231 48% 56%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 3.7% 17.5%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 231 48% 56%;
+
+    /* Custom disaster alert colors - adjusted for dark mode */
+    --alert-critical: 0 68% 65%;
+    --alert-high: 30 100% 58%;
+    --alert-moderate: 45 100% 61%;
+    --alert-low: 120 85% 45%;
+
+    /* Custom UI colors */
+    --map-bg: 200 18% 25%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+
+  /* Custom animation for alert pulse */
+  @keyframes pulse-alert {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.6;
+    }
+  }
+
+  .animate-pulse-critical {
+    animation: pulse-alert 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    background-color: hsl(var(--alert-critical));
+  }
+
+  .animate-pulse-high {
+    animation: pulse-alert 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    background-color: hsl(var(--alert-high));
+  }
+
+  .animate-pulse-moderate {
+    animation: pulse-alert 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    background-color: hsl(var(--alert-moderate));
+  }
+
+  /* Custom dashboard styles */
+  .dashboard-card {
+    @apply transition-all duration-200 hover:shadow-md;
+  }
+
+  /* Custom scroll bar for dark theme */
+  .dark ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .dark ::-webkit-scrollbar-track {
+    background: hsl(var(--card));
+  }
+
+  .dark ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted));
+    border-radius: 4px;
+  }
+
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
+  }
+
+  /* Smooth transitions for theme changes */
+  .transition-theme {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+}
