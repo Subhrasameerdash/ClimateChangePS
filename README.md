@@ -2,6 +2,8 @@
 
 A modern, real-time disaster management and climate change monitoring system built with React, TypeScript, and advanced mapping capabilities.
 
+🌐 **Live Demo**: [https://climate-change-ps.vercel.app/](https://climate-change-ps.vercel.app/)
+
 ## 🚀 Features
 
 - 🗺️ **Interactive Disaster Map**
